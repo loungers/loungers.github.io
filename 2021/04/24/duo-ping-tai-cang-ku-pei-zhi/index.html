@@ -262,15 +262,15 @@ function loadGitalk () {
     var gitalk = new Gitalk({
       clientID: 'f451ad5b3dcef53c2777',
       clientSecret: '04415807ffa5cd13247d707773e5bfaca7bf1cea',
-      repo: 'Loungers.github.io',
-      owner: 'Loungers',
-      admin: ['Loungers'],
+      repo: 'loungers.github.io',
+      owner: 'loungers',
+      admin: ['loungers'],
       id: 'a65cec63c05a1e3443d3072b248cb905',
       language: 'zh-CN',
       perPage: 10,
       distractionFreeMode: false,
       pagerDirection: 'last',
-      createIssueManually: false,
+      createIssueManually: true,
       updateCountCallback: commentCount
     })
     gitalk.render('gitalk-container')
