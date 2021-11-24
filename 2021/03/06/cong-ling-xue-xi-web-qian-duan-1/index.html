@@ -1,0 +1,304 @@
+<!DOCTYPE html><html lang="zh-CN" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width,initial-scale=1"><title>从零学习web前端(一) | Loungers</title><meta name="keywords" content="WEB,前端"><meta name="author" content="Loungers"><meta name="copyright" content="Loungers"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta http-equiv="Cache-Control" content="no-transform"><meta http-equiv="Cache-Control" content="no-siteapp"><meta name="description" content="一、认识前端      ​       大家好，这里是阿杰从零开始学习WEB系列，由于刚开始学习建站，而建站目的则是记录自己的学习过程。学习内容则是在道廷の博客以及菜鸟等网络上自己寻找资源进行学习。通过道廷の博客记录的内容来整理梳理学习目录。在此感谢道廷の博客以及为自己接下来的学习加油。   1.前端是什么  ​      前端即网站前台部分，运行在PC端，移动端等浏览器上展现给用户浏览的网页。随">
+<meta property="og:type" content="article">
+<meta property="og:title" content="从零学习web前端(一)">
+<meta property="og:url" content="https://loungers.github.io/2021/03/06/cong-ling-xue-xi-web-qian-duan-1/">
+<meta property="og:site_name" content="Loungers">
+<meta property="og:description" content="一、认识前端      ​       大家好，这里是阿杰从零开始学习WEB系列，由于刚开始学习建站，而建站目的则是记录自己的学习过程。学习内容则是在道廷の博客以及菜鸟等网络上自己寻找资源进行学习。通过道廷の博客记录的内容来整理梳理学习目录。在此感谢道廷の博客以及为自己接下来的学习加油。   1.前端是什么  ​      前端即网站前台部分，运行在PC端，移动端等浏览器上展现给用户浏览的网页。随">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://gitee.com/loungers/picbed/raw/master/images/djs.jpg">
+<meta property="article:published_time" content="2021-03-06T13:02:43.000Z">
+<meta property="article:modified_time" content="2021-11-22T01:22:09.933Z">
+<meta property="article:author" content="Loungers">
+<meta property="article:tag" content="WEB">
+<meta property="article:tag" content="前端">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://gitee.com/loungers/picbed/raw/master/images/djs.jpg"><link rel="shortcut icon" href="https://gitee.com/loungers/picbed/raw/master/upic/favicon.ico"><link rel="canonical" href="https://loungers.github.io/2021/03/06/cong-ling-xue-xi-web-qian-duan-1/"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css" media="print" onload="this.media='all'"><script>var GLOBAL_CONFIG = { 
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: {"defaultEncoding":2,"translateDelay":0,"msgToTraditionalChinese":"繁","msgToSimplifiedChinese":"簡"},
+  noticeOutdate: undefined,
+  highlight: {"plugin":"highlighjs","highlightCopy":true,"highlightLang":false},
+  copy: {
+    success: '复制成功',
+    error: '复制错误',
+    noSupport: '浏览器不支持'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  date_suffix: {
+    just: '刚刚',
+    min: '分钟前',
+    hour: '小时前',
+    day: '天前',
+    month: '个月前'
+  },
+  copyright: undefined,
+  lightbox: 'fancybox',
+  Snackbar: undefined,
+  source: {
+    jQuery: 'https://cdn.jsdelivr.net/npm/jquery@latest/dist/jquery.min.js',
+    justifiedGallery: {
+      js: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/js/jquery.justifiedGallery.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/justifiedGallery/dist/css/justifiedGallery.min.css'
+    },
+    fancybox: {
+      js: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.js',
+      css: 'https://cdn.jsdelivr.net/npm/@fancyapps/fancybox@latest/dist/jquery.fancybox.min.css'
+    }
+  },
+  isPhotoFigcaption: false,
+  islazyload: false,
+  isanchor: true
+};
+
+var saveToLocal = {
+  set: function setWithExpiry(key, value, ttl) {
+    const now = new Date()
+    const expiryDay = ttl * 86400000
+    const item = {
+      value: value,
+      expiry: now.getTime() + expiryDay,
+    }
+    localStorage.setItem(key, JSON.stringify(item))
+  },
+
+  get: function getWithExpiry(key) {
+    const itemStr = localStorage.getItem(key)
+
+    if (!itemStr) {
+      return undefined
+    }
+    const item = JSON.parse(itemStr)
+    const now = new Date()
+
+    if (now.getTime() > item.expiry) {
+      localStorage.removeItem(key)
+      return undefined
+    }
+    return item.value
+  }
+}
+
+// https://stackoverflow.com/questions/16839698/jquery-getscript-alternative-in-native-javascript
+const getScript = url => new Promise((resolve, reject) => {
+  const script = document.createElement('script')
+  script.src = url
+  script.async = true
+  script.onerror = reject
+  script.onload = script.onreadystatechange = function() {
+    const loadState = this.readyState
+    if (loadState && loadState !== 'loaded' && loadState !== 'complete') return
+    script.onload = script.onreadystatechange = null
+    resolve()
+  }
+  document.head.appendChild(script)
+})</script><script id="config_change">var GLOBAL_CONFIG_SITE = { 
+  isPost: true,
+  isHome: false,
+  isHighlightShrink: false,
+  isToc: true,
+  postUpdate: '2021-11-22 09:22:09'
+}</script><noscript><style type="text/css">
+  #nav {
+    opacity: 1
+  }
+  .justified-gallery img {
+    opacity: 1
+  }
+
+  #recent-posts time,
+  #post-meta time {
+    display: inline !important
+  }
+</style></noscript><script>(function () {  window.activateDarkMode = function () {
+    document.documentElement.setAttribute('data-theme', 'dark')
+    if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+    }
+  }
+  window.activateLightMode = function () {
+    document.documentElement.setAttribute('data-theme', 'light')
+   if (document.querySelector('meta[name="theme-color"]') !== null) {
+      document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+    }
+  }
+  const autoChangeMode = '1'
+  const t = saveToLocal.get('theme')
+  if (autoChangeMode === '1') {
+    const isDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches
+    const isLightMode = window.matchMedia('(prefers-color-scheme: light)').matches
+    const isNotSpecified = window.matchMedia('(prefers-color-scheme: no-preference)').matches
+    const hasNoSupport = !isDarkMode && !isLightMode && !isNotSpecified
+    if (t === undefined) {
+      if (isLightMode) activateLightMode()
+      else if (isDarkMode) activateDarkMode()
+      else if (isNotSpecified || hasNoSupport) {
+        const now = new Date()
+        const hour = now.getHours()
+        const isNight = hour <= 6 || hour >= 18
+        isNight ? activateDarkMode() : activateLightMode()
+      }
+      window.matchMedia('(prefers-color-scheme: dark)').addListener(function (e) {
+        if (saveToLocal.get('theme') === undefined) {
+          e.matches ? activateDarkMode() : activateLightMode()
+        }
+      })
+    } else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else if (autoChangeMode === '2') {
+    const now = new Date()
+    const hour = now.getHours()
+    const isNight = hour <= 6 || hour >= 18
+    if (t === undefined) isNight ? activateDarkMode() : activateLightMode()
+    else if (t === 'light') activateLightMode()
+    else activateDarkMode()
+  } else {
+    if (t === 'dark') activateDarkMode()
+    else if (t === 'light') activateLightMode()
+  }const asideStatus = saveToLocal.get('aside-status')
+if (asideStatus !== undefined) {
+   if (asideStatus === 'hide') {
+     document.documentElement.classList.add('hide-aside')
+   } else {
+     document.documentElement.classList.remove('hide-aside')
+   }
+}})()</script><meta name="generator" content="Hexo 5.4.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="author-avatar"><img class="avatar-img" src="https://gitee.com/loungers/picbed/raw/master/images/suolong.jpg" onerror="onerror=null;src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data"><div class="data-item is-center"><div class="data-item-link"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a></div></div><div class="data-item is-center"><div class="data-item-link"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div></div><hr/><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/image/"><i class="fa-fw fas fa-image"></i><span> Image</span></a></li><li><a class="site-page" href="/movie/"><i class="fa-fw fas fa-play"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg" id="page-header" style="background-image: url(https://gitee.com/loungers/picbed/raw/master/images/mawei.jpg)"><nav id="nav"><span id="blog_name"><a id="site-name" href="/">Loungers</a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> 主页</span></a></div><div class="menus_item"><a class="site-page" href="/archives/"><i class="fa-fw fas fa-archive"></i><span> 归档</span></a></div><div class="menus_item"><a class="site-page" href="/tags/"><i class="fa-fw fas fa-tags"></i><span> 标签</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> 分类</span></a></div><div class="menus_item"><a class="site-page" href="javascript:void(0);"><i class="fa-fw fas fa-list"></i><span> 其他</span><i class="fas fa-chevron-down expand"></i></a><ul class="menus_item_child"><li><a class="site-page" href="/music/"><i class="fa-fw fas fa-music"></i><span> Music</span></a></li><li><a class="site-page" href="/image/"><i class="fa-fw fas fa-image"></i><span> Image</span></a></li><li><a class="site-page" href="/movie/"><i class="fa-fw fas fa-play"></i><span> Movie</span></a></li></ul></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> 友链</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><a class="site-page"><i class="fas fa-bars fa-fw"></i></a></div></div></nav><div id="post-info"><h1 class="post-title">从零学习web前端(一)</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">发表于</span><time class="post-meta-date-created" datetime="2021-03-06T13:02:43.000Z" title="发表于 2021-03-06 21:02:43">2021-03-06</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">更新于</span><time class="post-meta-date-updated" datetime="2021-11-22T01:22:09.933Z" title="更新于 2021-11-22 09:22:09">2021-11-22</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/HTML/">HTML</a><i class="fas fa-angle-right post-meta-separator"></i><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/HTML/WEB/">WEB</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv"><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">阅读量:</span><span id="busuanzi_value_page_pv"></span></span><span class="post-meta-separator">|</span><span class="post-meta-commentcount"><i class="far fa-comments fa-fw post-meta-icon"></i><span class="post-meta-label">评论数:</span><a href="/2021/03/06/cong-ling-xue-xi-web-qian-duan-1/#post-comment"><span class="gitalk-comment-count"></span></a></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="post-content" id="article-container"><div align = 'center'><font size = "70">一、认识前端</font></div>  
+
+<hr>
+
+<p>​       大家好，这里是阿杰从零开始学习WEB系列，由于刚开始学习建站，而建站目的则是记录自己的学习过程。学习内容则是在道廷の博客以及菜鸟等网络上自己寻找资源进行学习。通过道廷の博客记录的内容来整理梳理学习目录。在此感谢道廷の博客以及为自己接下来的学习加油。</p>
+<hr>
+
+<h2 id="1-前端是什么"><a href="#1-前端是什么" class="headerlink" title="1.前端是什么"></a>1.<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E5%89%8D%E7%AB%AF/5956545">前端</a>是什么</h2><hr>
+
+<p>​      前端即网站前台部分，运行在PC端，移动端等浏览器上展现给用户浏览的<font color = red><strong>网页</strong></font>。随着互联网技术的发展，HTML5，CSS3，前端框架的应用，跨平台响应式网页设计能够适应各种屏幕分辨率，合适的动效设计，给用户带来极高的用户体验。</p>
+<p>​      前端开发的核心部分主要是：HTML，CSS，JavaScript 三个部分。这三个是前端开发中最基本也是最必须的三个技能。</p>
+<p>​       前端的开发中，在页面的布局时， HTML将元素进行定义，CSS对展示的元素进行定位，再通过JavaScript实现相应的效果和交互。虽然表面看起来很简单，但这里面需要掌握的东西绝对不会少。在进行开发前，需要对这些概念弄清楚、弄明白，这样在开发的过程中才会得心应手。<br>​ <strong>HTML</strong> 是这三者中最基础的部分，相当于是网页的骨架，也就是网页的结构；<br>​ <strong>CSS</strong> 部分是网页的表现形式，也可以说是网页的美化，比如一个图片的大小、位置，文字的大小颜色等；<br>​ <strong>JavaScript</strong> 是一种动态的脚本语言，负责与用户进行交互，增加用户体验的作用。</p>
+<hr>
+
+<h2 id="2-网页组成"><a href="#2-网页组成" class="headerlink" title="2.网页组成"></a>2.网页组成</h2><hr>
+
+<p>​       一个网页的组成部分主要包括下面几个部分：<strong>文字、图片、输入框、视频、音频、超链接</strong>等。</p>
+<hr>
+
+<h2 id="3-网页标准"><a href="#3-网页标准" class="headerlink" title="3.网页标准"></a>3.<a target="_blank" rel="noopener" href="https://www.w3cschool.cn/wzjszn/web-standards.html">网页标准</a></h2><hr>
+
+<p>​       说起网页标准不得不提W3C(<a target="_blank" rel="noopener" href="https://www.w3school.com.cn/about/about_us.asp">万维网联盟</a>)，建立于1994年,是一个国际性的联盟,其宗旨是投身于”引领 web 以激发其全部潜能”，是Web技术领域最具权威和影响力的国际中立性技术标准机构。<br>最重要W3C标准有：</p>
+<blockquote>
+<p><a target="_blank" rel="noopener" href="https://www.w3cschool.cn/html/html-tutorial.html">HTML</a><br><a target="_blank" rel="noopener" href="https://www.w3cschool.cn/css/css-tutorial.html">CSS</a><br><a target="_blank" rel="noopener" href="https://www.w3cschool.cn/xml/">XML</a><br><a target="_blank" rel="noopener" href="https://www.w3cschool.cn/xsl/">XSL</a><br><a target="_blank" rel="noopener" href="https://www.w3cschool.cn/xmldom/xmldom-dom-tutorialjpkc1t5e.html">DOM</a></p>
+</blockquote>
+<p>​      与之类似的一个组织是「European Computer Manufacturers Association」（ECMA组织），这个组织制定了标准的脚本语言规范 ECMAScript ，而 JavaScript 就参照的这个规范。</p>
+<p>​       那么我们所熟知的HTML网页就由Web标准规范了下面的三个部分：</p>
+<blockquote>
+<p><strong>HTML</strong>标准(结构标准),这相当于人体的骨架结构。</p>
+<p><strong>CSS</strong>标准(表现标准),这相当于化妆师给人化妆变得更漂亮。</p>
+<p><strong>JavaScript</strong>脚本(行为标准),相当于给工作的人专属的工具，这样可以工作的更轻松。</p>
+</blockquote>
+<hr>
+
+<h2 id="4-浏览器内核"><a href="#4-浏览器内核" class="headerlink" title="4.浏览器内核"></a>4.<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8">浏览器内核</a></h2><hr>
+
+<p>​      浏览器最重要或者说核心的部分是“Rendering Engine”，可大概译为“渲染引擎”，不过我们一般习惯将之称为“浏览器内核”。负责对网页语法的解释（如标准通用标记语言下的一个应用HTML、JavaScript）并渲染（显示）网页。 所以，通常所谓的浏览器内核也就是浏览器所采用的渲染引擎，渲染引擎决定了浏览器如何显示网页的内容以及页面的格式信息。不同的浏览器内核对网页编写语法的解释也有不同，因此同一网页在不同的内核的浏览器里的渲染（显示）效果也可能不同，这也是网页编写者需要在不同内核的浏览器中测试网页显示效果的原因。</p>
+<hr>
+
+<h2 id="5-认识HTML"><a href="#5-认识HTML" class="headerlink" title="5.认识HTML"></a>5.认识<a target="_blank" rel="noopener" href="https://baike.baidu.com/item/HTML">HTML</a></h2><hr>
+
+<p>​       HTML称为超文本标记语言，是一种标记语言。HTML文本是由HTML命令组成的描述性文本，HTML命令可以说明文字，图形、动画、声音、表格、链接等。</p>
+<hr>
+
+<h2 id="6-HTML结构标准"><a href="#6-HTML结构标准" class="headerlink" title="6.HTML结构标准"></a>6.HTML结构标准</h2><hr>
+
+<p>​      完整HTML包括html DOCTYPE声明、title标题、head、网页编码声明等内容</p>
+<p>​      HTML基本结构如下：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">HTML</span><br><span class="line">&lt;!DOCTYPE html&gt;    声明文档类型</span><br><span class="line">&lt;html&gt;              根标签</span><br><span class="line">&lt;head&gt;              头标签</span><br><span class="line">  &lt;meta charset = &quot;UTF-8&quot;&gt; 编码声明</span><br><span class="line">  &lt;title&gt;&lt;/title&gt;     标题标签</span><br><span class="line">&lt;/head&gt;</span><br><span class="line">&lt;body&gt;              主体标签</span><br><span class="line">&lt;/body&gt;</span><br><span class="line">&lt;/html&gt;</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><code>&lt;!DOCTYPE html&gt;</code> 是告诉浏览器，以下文件用 HTML 哪个版本解析。</p>
+<p><code>&lt;html&gt;&lt;/html&gt;</code>标签是一个网页的根标签，所有的标签都要写在这一对根标签里面。</p>
+<p><code>&lt;head&gt;&lt;head&gt;</code>是头标签，主要是定义文档（网页）的头部，包括完档的属性和信息，文档的标题，还可以引入 JavaScript 脚本，CSS 格式等。</p>
+<p><code>&lt;body&gt;&lt;/body&gt;</code>是一个文档的主题，里面包含文档的所有内容，比如文本，超链接，图片，表格等内容。</p>
+</blockquote>
+<hr>
+## 7.HTML标签分类
+
+<hr>
+
+<p>​      HTML中的标签分为两类，单标签和双标签：</p>
+<blockquote>
+<p>单标签：<code>&lt;Doctype html&gt;</code></p>
+<p>双标签：<code>&lt;html&gt;&lt;/html&gt;</code> <code>&lt;head&gt;&lt;/head&gt;</code> <code>&lt;title&gt;&lt;/title&gt;</code></p>
+</blockquote>
+<hr>
+
+<h2 id="8-HTML标签关系分类"><a href="#8-HTML标签关系分类" class="headerlink" title="8.HTML标签关系分类"></a>8.HTML标签关系分类</h2><hr>
+
+<p>​      HTML的标签关系大致分为两类：包含和并列</p>
+<blockquote>
+<p>包含(嵌套)关系:<code>&lt;head&gt;&lt;title&gt;&lt;/title&gt;&lt;/head&gt;</code> 类似父子关系<br>并列关系: <code>&lt;head&gt;&lt;/head&gt;&lt;body&gt;&lt;/body&gt;</code> 类似兄弟姐妹的关系</p>
+</blockquote>
+<hr>
+
+<h2 id="9-开发工具"><a href="#9-开发工具" class="headerlink" title="9.开发工具"></a>9.开发工具</h2><hr>
+
+<p>​       小白在前期学习web开发时，很多人都建议不要使用webstorm,说是太智能，不利于新手的学习,反而会削弱我们对基础知识的掌握，但是不得不说 JebBrain 全家桶的「 <a target="_blank" rel="noopener" href="http://www.jetbrains.com/webstorm/">Webstorm</a> 」软件。目前已经被广大 Web 开发者誉为“Web前端开发神器”、“最强大的HTML5编辑器”、“最智能的JavaScript IDE”等。它令人称到的是它智能打代码补全、代码一键格式化、HTML 提示、联想查询、代码重构等强大功能。</p>
+<p>​       我看网上很多人都推荐「<a target="_blank" rel="noopener" href="https://www.sublimetext.com/">Sublime Text 3</a>」 代码编辑器，说它小巧精致，不但有着炫酷的界面，还有大量的插件可以使用，大大提高了代码的编写效率。</p>
+<p>​       本人也是新手小白，也不知道该推荐什么编辑器，所以在电脑上两款编辑器都下载了，在以后的学习中会测评两款产品然后确定自己的编辑器。</p>
+<hr>
+
+<h2 id="10-小结"><a href="#10-小结" class="headerlink" title="10.小结"></a>10.小结</h2><hr>
+
+<p>​       作为小白，第一次写文章遇到很多问题，如本篇的许多Markdown代码搞不清楚，一遍学习Markdown代码规则，一边写文章。今天的知识点也都是些基础知识，之后将进入到前端的正式学习中。</p>
+<hr>
+
+</article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta">文章作者: </span><span class="post-copyright-info"><a href="mailto:undefined">Loungers</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta">文章链接: </span><span class="post-copyright-info"><a href="https://loungers.github.io/2021/03/06/cong-ling-xue-xi-web-qian-duan-1/">https://loungers.github.io/2021/03/06/cong-ling-xue-xi-web-qian-duan-1/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta">版权声明: </span><span class="post-copyright-info">本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/4.0/" target="_blank">CC BY-NC-SA 4.0</a> 许可协议。转载请注明来自 <a href="https://loungers.github.io" target="_blank">Loungers</a>！</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/WEB/">WEB</a><a class="post-meta__tags" href="/tags/%E5%89%8D%E7%AB%AF/">前端</a></div><div class="post_share"><div class="social-share" data-image="https://gitee.com/loungers/picbed/raw/master/images/djs.jpg" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/social-share.js/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/social-share.js/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><div class="prev-post pull-left"><a href="/2021/04/24/duo-ping-tai-cang-ku-pei-zhi/"><img class="prev-cover" src="https://gitee.com/loungers/picbed/raw/master/images/初音%20画画%20电脑%20初音未来4k动漫壁纸.jpg" onerror="onerror=null;src='/img/404.jpg'" alt="cover of previous post"><div class="pagination-info"><div class="label">上一篇</div><div class="prev_info">多平台仓库配置</div></div></a></div><div class="next-post pull-right"><a href="/2021/03/06/hello-world/"><img class="next-cover" src="https://gitee.com/loungers/picbed/raw/master/images/cat.png" onerror="onerror=null;src='/img/404.jpg'" alt="cover of next post"><div class="pagination-info"><div class="label">下一篇</div><div class="next_info">Hello World</div></div></a></div></nav><hr/><div id="post-comment"><div class="comment-head"><div class="comment-headline"><i class="fas fa-comments fa-fw"></i><span> 评论</span></div></div><div class="comment-wrap"><div><div id="gitalk-container"></div></div></div></div></div><div class="aside-content" id="aside-content"><div class="card-widget card-info"><div class="card-info-avatar is-center"><img class="avatar-img" src="https://gitee.com/loungers/picbed/raw/master/images/suolong.jpg" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/><div class="author-info__name">Loungers</div><div class="author-info__description">达瓦的个人博客，记录学习</div></div><div class="card-info-data"><div class="card-info-data-item is-center"><a href="/archives/"><div class="headline">文章</div><div class="length-num">3</div></a></div><div class="card-info-data-item is-center"><a href="/tags/"><div class="headline">标签</div><div class="length-num">4</div></a></div><div class="card-info-data-item is-center"><a href="/categories/"><div class="headline">分类</div><div class="length-num">3</div></a></div></div><a class="button--animated" id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/Loungers"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons is-center"><a class="social-icon" href="QQ:708994296" target="_blank" title="QQ"><i class="fab fa-qq"></i></a><a class="social-icon" href="https://github.com/Loungers" target="_blank" title="Github"><i class="fab fa-github"></i></a><a class="social-icon" href="mailto:708994296@qq.com" target="_blank" title="Email"><i class="fas fa-envelope"></i></a><a class="social-icon" href="https://gitee.com/loungers" target="_blank" title="Gitee"><i class="fab fa-git"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn card-announcement-animation"></i><span>公告</span></div><div class="announcement_content">This is my Blog</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>目录</span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-%E5%89%8D%E7%AB%AF%E6%98%AF%E4%BB%80%E4%B9%88"><span class="toc-number">1.</span> <span class="toc-text">1.前端是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-%E7%BD%91%E9%A1%B5%E7%BB%84%E6%88%90"><span class="toc-number">2.</span> <span class="toc-text">2.网页组成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-%E7%BD%91%E9%A1%B5%E6%A0%87%E5%87%86"><span class="toc-number">3.</span> <span class="toc-text">3.网页标准</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4-%E6%B5%8F%E8%A7%88%E5%99%A8%E5%86%85%E6%A0%B8"><span class="toc-number">4.</span> <span class="toc-text">4.浏览器内核</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5-%E8%AE%A4%E8%AF%86HTML"><span class="toc-number">5.</span> <span class="toc-text">5.认识HTML</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6-HTML%E7%BB%93%E6%9E%84%E6%A0%87%E5%87%86"><span class="toc-number">6.</span> <span class="toc-text">6.HTML结构标准</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8-HTML%E6%A0%87%E7%AD%BE%E5%85%B3%E7%B3%BB%E5%88%86%E7%B1%BB"><span class="toc-number">7.</span> <span class="toc-text">8.HTML标签关系分类</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9-%E5%BC%80%E5%8F%91%E5%B7%A5%E5%85%B7"><span class="toc-number">8.</span> <span class="toc-text">9.开发工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10-%E5%B0%8F%E7%BB%93"><span class="toc-number">9.</span> <span class="toc-text">10.小结</span></a></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>最新文章</span></div><div class="aside-list"><div class="aside-list-item"><a class="thumbnail" href="/2021/04/24/duo-ping-tai-cang-ku-pei-zhi/" title="多平台仓库配置"><img src="https://gitee.com/loungers/picbed/raw/master/images/初音%20画画%20电脑%20初音未来4k动漫壁纸.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="多平台仓库配置"/></a><div class="content"><a class="title" href="/2021/04/24/duo-ping-tai-cang-ku-pei-zhi/" title="多平台仓库配置">多平台仓库配置</a><time datetime="2021-04-24T13:26:16.000Z" title="发表于 2021-04-24 21:26:16">2021-04-24</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/06/cong-ling-xue-xi-web-qian-duan-1/" title="从零学习web前端(一)"><img src="https://gitee.com/loungers/picbed/raw/master/images/djs.jpg" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="从零学习web前端(一)"/></a><div class="content"><a class="title" href="/2021/03/06/cong-ling-xue-xi-web-qian-duan-1/" title="从零学习web前端(一)">从零学习web前端(一)</a><time datetime="2021-03-06T13:02:43.000Z" title="发表于 2021-03-06 21:02:43">2021-03-06</time></div></div><div class="aside-list-item"><a class="thumbnail" href="/2021/03/06/hello-world/" title="Hello World"><img src="https://gitee.com/loungers/picbed/raw/master/images/cat.png" onerror="this.onerror=null;this.src='/img/404.jpg'" alt="Hello World"/></a><div class="content"><a class="title" href="/2021/03/06/hello-world/" title="Hello World">Hello World</a><time datetime="2021-03-06T12:53:20.000Z" title="发表于 2021-03-06 20:53:20">2021-03-06</time></div></div></div></div></div></div></main><footer id="footer"><div id="footer-wrap"><div class="copyright">&copy;2020 - 2021 By Loungers</div><div class="framework-info"><span>框架 </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo</a><span class="footer-separator">|</span><span>主题 </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly</a></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="阅读模式"><i class="fas fa-book-open"></i></button><button id="translateLink" type="button" title="简繁转换">繁</button><button id="darkmode" type="button" title="浅色和深色模式转换"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="单栏和双栏切换"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside_config" type="button" title="设置"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="目录"><i class="fas fa-list-ul"></i></button><a id="to_comment" href="#post-comment" title="直达评论"><i class="fas fa-comments"></i></a><button id="go-up" type="button" title="回到顶部"><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><script src="/js/tw_cn.js"></script><div class="js-pjax"><script>function addGitalkSource () {
+  const ele = document.createElement('link')
+  ele.rel = 'stylesheet'
+  ele.href= 'https://cdn.jsdelivr.net/npm/gitalk/dist/gitalk.min.css'
+  document.getElementsByTagName('head')[0].appendChild(ele)
+}
+
+function loadGitalk () {
+  function initGitalk () {
+    var gitalk = new Gitalk({
+      clientID: 'f451ad5b3dcef53c2777',
+      clientSecret: '04415807ffa5cd13247d707773e5bfaca7bf1cea',
+      repo: 'Loungers.github.io',
+      owner: 'Loungers',
+      admin: ['Loungers'],
+      id: '8551d4fe7430d005cf4f51d8097b360b',
+      language: 'zh-CN',
+      perPage: 10,
+      distractionFreeMode: false,
+      pagerDirection: 'last',
+      createIssueManually: false,
+      updateCountCallback: commentCount
+    })
+    gitalk.render('gitalk-container')
+  }
+
+  if (typeof Gitalk === 'function') initGitalk()
+  else {
+    addGitalkSource()
+    getScript('https://cdn.jsdelivr.net/npm/gitalk@latest/dist/gitalk.min.js').then(initGitalk)
+  }
+}
+
+function commentCount(n){
+  let isCommentCount = document.querySelector('#post-meta .gitalk-comment-count')
+  if (isCommentCount) {
+    isCommentCount.innerHTML= n
+  }
+}
+
+if ('Gitalk' === 'Gitalk' || !false) {
+  if (false) btf.loadComment(document.getElementById('gitalk-container'), loadGitalk)
+  else loadGitalk()
+} else {
+  function loadOtherComment () {
+    loadGitalk()
+  }
+}</script><script async src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div><script defer="defer" id="ribbon" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-ribbon.min.js" size="150" alpha="0.6" zIndex="-1" mobile="true" data-click="true"></script><script defer="defer" id="fluttering_ribbon" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-fluttering-ribbon.min.js"></script><script id="canvas_nest" defer="defer" color="0,0,255" opacity="0.7" zIndex="-1" count="99" mobile="true" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/canvas-nest.min.js"></script><script id="click-heart" src="https://cdn.jsdelivr.net/npm/butterfly-extsrc@1/dist/click-heart.min.js" async="async" mobile="true"></script></div></body></html>
