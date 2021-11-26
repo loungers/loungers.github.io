@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+  <title>Loungers</title>
+  <icon>https://loungers.github.io/icon.png</icon>
+  <subtitle>达瓦的个人博客，记录学习</subtitle>
+  <link href="https://loungers.github.io/atom.xml" rel="self"/>
+  
+  <link href="https://loungers.github.io/"/>
+  <updated>2021-11-22T01:22:09.933Z</updated>
+  <id>https://loungers.github.io/</id>
+  
+  <author>
+    <name>Loungers</name>
+    
+  </author>
+  
+  <generator uri="https://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>多平台仓库配置</title>
+    <link href="https://loungers.github.io/2021/04/24/duo-ping-tai-cang-ku-pei-zhi/"/>
+    <id>https://loungers.github.io/2021/04/24/duo-ping-tai-cang-ku-pei-zhi/</id>
+    <published>2021-04-24T13:26:16.000Z</published>
+    <updated>2021-11-22T01:22:09.933Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align = &#39;center&#39;&gt;&lt;font size = &quot;70&quot;&gt;多平台仓库配置&lt;/font&gt;&lt;/div&gt;  
+
+&lt;hr&gt;
+&lt;p&gt;​   </summary>
+        
+      
+    
+    
+    
+    <category term="技术" scheme="https://loungers.github.io/categories/%E6%8A%80%E6%9C%AF/"/>
+    
+    
+    <category term="代码托管" scheme="https://loungers.github.io/tags/%E4%BB%A3%E7%A0%81%E6%89%98%E7%AE%A1/"/>
+    
+    <category term="仓库配置" scheme="https://loungers.github.io/tags/%E4%BB%93%E5%BA%93%E9%85%8D%E7%BD%AE/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>从零学习web前端(一)</title>
+    <link href="https://loungers.github.io/2021/03/06/cong-ling-xue-xi-web-qian-duan-1/"/>
+    <id>https://loungers.github.io/2021/03/06/cong-ling-xue-xi-web-qian-duan-1/</id>
+    <published>2021-03-06T13:02:43.000Z</published>
+    <updated>2021-11-22T01:22:09.933Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;div align = &#39;center&#39;&gt;&lt;font size = &quot;70&quot;&gt;一、认识前端&lt;/font&gt;&lt;/div&gt;  
+
+&lt;hr&gt;
+
+&lt;p&gt;​      </summary>
+        
+      
+    
+    
+    
+    <category term="HTML" scheme="https://loungers.github.io/categories/HTML/"/>
+    
+    <category term="WEB" scheme="https://loungers.github.io/categories/HTML/WEB/"/>
+    
+    
+    <category term="WEB" scheme="https://loungers.github.io/tags/WEB/"/>
+    
+    <category term="前端" scheme="https://loungers.github.io/tags/%E5%89%8D%E7%AB%AF/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hello World</title>
+    <link href="https://loungers.github.io/2021/03/06/hello-world/"/>
+    <id>https://loungers.github.io/2021/03/06/hello-world/</id>
+    <published>2021-03-06T12:53:20.000Z</published>
+    <updated>2021-11-22T01:22:09.933Z</updated>
+    
+    
+      
+      
+        
+        
+    <summary type="html">&lt;p&gt;Welcome to &lt;a href=&quot;https://hexo.io/&quot;&gt;Hexo&lt;/a&gt;! This is your very first post. Check &lt;a href=&quot;https://hexo.io/docs/&quot;&gt;documentation&lt;/a&gt;</summary>
+        
+      
+    
+    
+    
+    
+  </entry>
+  
+</feed>
